@@ -1,7 +1,7 @@
 #Extract emails from csv files and compare them
 Author: Francesco Montesano  
 email: franz.bergesund@gmail.com  
-Licence: freeBSD [the license](LICENSE) file
+Licence: freeBSD [the licence file](LICENCE)
 
 ##Dependences
 
