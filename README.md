@@ -13,6 +13,16 @@ To compile the code simply go to the `src` directory and type
 
     ghc --make Main
 
+If you get the following error
+
+    /path/to/bin/ld: cannot find -ltinfo
+
+make sure to have the development version of libtinfo
+
+On OpenSuse you can get it running
+
+    zypper install ncurses-devel
+
 ##Synopsis
 
 The code does provide an interactive console and no command line arguments.
