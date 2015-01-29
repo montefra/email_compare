@@ -25,7 +25,7 @@ ppEStatus status = Map.foldrWithKey ppmap "" $ fromEStatus status
 
 -- function given to the foldrWithKey
 ppmap :: Tag -> (Set.Set EMail) -> String -> String
-ppmap k v acc = acc ++ k ++ ":\n" ++ (pplist (Set.toList v) "  ")
+ppmap k v acc = acc ++ k ++ ":\n" ++ (pplist (Set.toList v) "    ")
 
 -- convert a set into a string with 5 email in each row
 pplist :: [EMail] -> String -> String
