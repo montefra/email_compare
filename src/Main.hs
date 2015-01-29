@@ -43,4 +43,4 @@ command status = getInputLine "~> " >>= command'
 
                
 main = putStr welcome >>
-       runInputT defaultSettings (command (toEStatus Map.empty))
+       runInputT defaultSettings (command $ toEStatus Map.empty)
