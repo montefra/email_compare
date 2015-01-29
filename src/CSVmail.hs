@@ -7,23 +7,19 @@ import Control.Applicative
 import Text.Regex.Posix
 
 import Types (EMail)
+import Tools (safeTail)
 
 type CSV = String
 
 isCommaOrNewLine :: Char -> Bool
 isCommaOrNewLine c = c == ',' || c == '\n'
 
--- tail is dangerous....
-safeTail :: [a] -> [a]
-safeTail []   = []
-safeTail xs = tail xs
-
 -- split the input string into a list of string assuming that the input is the
 -- content of a CSV file
 splitCSV :: CSV -> [String]
 splitCSV [] = []
 splitCSV xs = let (xhead, tail') = break isCommaOrNewLine xs
-                  xtail = safeTail tail'
+                  xtail = safeTail tail'  -- remove the leading comma or new line at
               in xhead:(splitCSV xtail)
 
 -- extract what looks like an email out of a list of strings
