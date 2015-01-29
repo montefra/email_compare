@@ -23,7 +23,7 @@ commandMap = Map.fromList [("help", help)
                           ,("print", printtag)
                           ]
 
--- Help string. unlines add a trailing \n and init removes it
+-- Help string. `unlines` add a trailing \n and `init` removes it
 help :: EStatus -> [String] -> IO EStatus
 help status _ = putStr helpStr >> return status
                 where helpStr = unlines 
@@ -74,7 +74,7 @@ loadifFile s t fn = doesFileExist fn >>= loadIfExist
 loadFile :: EStatus -> Tag -> FilePath -> IO EStatus
 loadFile s t fn = pure (esInsert t) <*> emails <*> (return s)
                   where emails = readFile fn >>=
-                                (\s -> return (csv2eMails s)) 
+                                (\s' -> return (csv2eMails s')) 
 
 
 -- get the difference between the sets attached to two tags 
